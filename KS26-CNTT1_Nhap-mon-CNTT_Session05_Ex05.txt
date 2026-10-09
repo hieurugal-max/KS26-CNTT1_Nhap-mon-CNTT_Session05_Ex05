@@ -1,0 +1,40 @@
+Bài 5: Thiết kế quy trình tự động quản lý tệp bằng Terminal
+1. Sơ đồ luồng IPO
+Input: Các file trong thư mục Downloads.
+Process: Robot kiểm tra đuôi file và phân loại.
+Output:
+File .png, .jpg → chuyển vào media/.
+File .py → chuyển vào scripts/.
+File .tmp → xóa để giải phóng dung lượng.
+File khác → giữ nguyên.
+2. Các câu lệnh Terminal
+
+Bước 1: Vào thư mục Downloads
+
+cd Downloads
+ls
+
+
+Bước 2: Tạo thư mục chứa file
+
+mkdir -p media scripts
+
+
+Bước 3: Chuyển file ảnh
+
+mv -i -- *.png media/
+mv -i -- *.jpg media/
+
+
+Bước 4: Chuyển file Python
+
+mv -i -- *.py scripts/
+
+
+Bước 5: Xóa file tạm
+
+rm -i -- *.tmp
+
+3. Xử lý trường hợp lỗi Is a directory
+
+Nếu gặp thư mục trùng tên với file cần di chuyển, Robot sẽ kiểm tra và bỏ qua để tránh lỗi.
